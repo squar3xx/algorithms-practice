@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+void bubbleSort(int* array, size_t size);
+
+int main() {
+    int array[] = {3, 7, 5, 1};
+    size_t size = sizeof(array) / sizeof(int);
+
+    printf("Array: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", array[i]);
+    }
+    printf("\n");
+
+    bubbleSort(array, size);
+
+    printf("Sorted array: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", array[i]);
+    }
+    printf("\n");
+}
+
+void bubbleSort(int* array, size_t size) {
+    int bubblesIsActive = 1;
+    int swap;
+
+    while(bubblesIsActive) {       
+        swap = 0;
+
+        for (int j = 0; j < size - 1; j++) {
+            if(array[j] > array[j + 1]) {
+                int temp = array[j + 1];
+                array[j + 1] = array[j];
+                array[j] = temp;
+                swap = 1;
+            }
+        }
+
+        if (swap == 0) {
+            bubblesIsActive = 0;
+        }
+
+    }
+
+}
